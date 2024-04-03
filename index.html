@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html-css-boolzapp</title>
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/04b99885ba.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+
+    <div id="app">
+        
+        <div class="container">
+            <div class="row app_body">
+
+                
+                <div class="contacts">
+
+                    <div class="row contacts_header">
+                        <div class="avatar_io"><img src="img 3/avatar_io.jpg" alt="avatar_io"></div>
+                        <ul class="row contacts_header_nav">
+                            <li><a href="#"><i class="fa-solid fa-circle-notch"></i></a></li>
+                            <li><a href="#"><i class="fa-solid fa-message"></i></a></li>
+                            <li><a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="row contacts_notifications">
+                        <div class="icon"><i class="fa-solid fa-bell-slash"></i></div>
+                        <div class="row notification_content">
+                            <span>Ricevi notifiche di nuovi messaggi</span>
+                            <a href="#">Attiva notifiche desktop</a>
+                        </div>
+                    </div>
+
+                    <div class="contacts_search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" name="q" placeholder="Cerca o inizia una nuova chat ">
+                    </div>
+                   
+                    <ul class="contacts_list">
+                        <li class="row contact_card"  v-for="(element, i) in contacts">
+                            <div class="avatar"><img :src="element.avatar" alt="avatar1"></div>
+                            <div class="contact_info">
+                                <div class="name--mesage">
+                                    <div class="name">{{element.name}}</div>
+                                    <div class="mesage">Lorem ipsum dolor sit amet.</div>
+                                </div>
+                            </div>
+                            <div class="time">15:35</div>
+                        </li>
+                    </ul>
+                </div>
+
+                
+                <div class="row chat">
+                    <div class="chat_header">
+                        <div class="row chat_header">
+                            <div class="avatar"><img src="img 3/avatar_1.jpg" alt="avatar_1"></div>
+                            <div class="name--mesage">
+                                <div class="name">Fabio</div>
+                                <div class="mesage">Ultiom accesso oggi alle 0:00</div>
+                            </div>
+                            <ul class="row contacts_header_nav">
+                                <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                                <li><a href="#"><i class="fa-solid fa-paperclip"></i></a></li>
+                                <li><a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row chat_main">
+                        <div class="row mesage_i">
+                            <p class="mesage_txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, fugit.</p>
+                            <div class="row mesage_nav_time">
+                                
+                                <div class="dropdown mesage_arrow">
+                                   <div class="drop_arrow"><i class="fa-solid fa-chevron-down"></i></div>
+                                    <div class="row dropdown-content">
+                                        <a href="#">Reply</a>
+                                        <a href="#">React</a>
+                                        <a href="#">Copy</a>
+                                        <a href="#">Delete</a>
+                                    </div>
+                                </div>
+                                <div class="mesage_time">2:35</div>
+                            </div>
+                        </div>
+
+                        <div class="row mesage_contact">
+                            <p class="mesage_txt">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta vel eum, ratione quae totam quia quos unde architecto nihil? Modi!</p>
+                            <div class="row mesage_nav_time">
+                                
+                                <div class="dropdown mesage_arrow">
+                                   <div class="drop_arrow"><i class="fa-solid fa-chevron-down"></i></div>
+                                    <div class="row dropdown-content">
+                                        <a href="#">Reply</a>
+                                        <a href="#">React</a>
+                                        <a href="#">Copy</a>
+                                        <a href="#">Delete</a>
+                                    </div>
+                                </div>
+                                <div class="mesage_time">2:35</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row chat_footer">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <input type="text" placeholder="Type your message here...">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="/js/app.js"></script>
+</body>
+</body>
+</html> 
