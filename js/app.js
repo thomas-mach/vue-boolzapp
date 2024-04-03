@@ -1,39 +1,41 @@
 const { createApp } = Vue
 
 createApp({
-  data() {
-    return {
-      message: 'Hello Vue!',
-      
-      contacts: [
-            {
-                name: 'Fabio',
-                avatar: 'img 3/avatar_1.jpg',
-                visible: true,
-                
-                messages: [
-                    {
-                        date: '10/01/2020 15:30:55',
-                        message: 'Hai portato a spasso il cane?',
-                        status: 'sent'
-                    },
-                    {
-                        date: '10/01/2020 15:50:00',
-                        message: 'Ricordati di stendere i panni',
-                        status: 'sent'
-                    },
-                    {
-                        date: '10/01/2020 16:15:22',
-                        message: 'Tutto fatto!',
-                        status: 'received'
-                    }
-                ]
-            },
+    data() {
+        return {
+            currentIndex: 0,
             
+            contacts: [
+                {
+                    name: 'Fabio',
+                    avatar: 'img 3/avatar_1.jpg',
+                    visible: true,
+                    
+                    
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
+                            message: 'Hai portato a spasso il cane?',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: 'Ricordati di stendere i panni',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 16:15:22',
+                            message: 'Tutto fatto!',
+                            status: 'received'
+                        }
+                    ]
+                },
+                
             {
                 name: 'Pietro',
                 avatar: 'img 3/avatar_2.jpg',
                 visible: true,
+              
             
                 messages: [
                 {
@@ -57,6 +59,7 @@ createApp({
                 name: 'Samuele',
                 avatar: 'img 3/avatar_3.jpg',
                 visible: true,
+               
                     
                 messages: [
                 {
@@ -74,12 +77,13 @@ createApp({
                     message: 'Ah scusa!',
                     status: 'received'
                 }
-                ]
-            },
-            {
-                name: 'Alessandro',
-                avatar: 'img 3/avatar_4.jpg',
-                visible: true,
+            ]
+        },
+        {
+            name: 'Alessandro C.',
+            avatar: 'img 3/avatar_4.jpg',
+            visible: true,
+            
                 
                 messages: [
                 {
@@ -98,6 +102,7 @@ createApp({
                 name: 'Alessandro',
                 avatar: 'img 3/avatar_5.jpg',
                 visible: true,
+              
                 
                 messages: [
                 {
@@ -116,6 +121,7 @@ createApp({
                 name: 'Claudia',
                 avatar: 'img 3/avatar_6.jpg',
                 visible: true,
+               
                 
                 messages: [
                 {
@@ -140,6 +146,7 @@ createApp({
                 avatar: 'img 3/avatar_7.jpg',
                 visible: true,
                 
+                
                 messages: [
                 {
                     date: '10/01/2020 15:30:55',
@@ -157,6 +164,7 @@ createApp({
                 name: 'Davide',
                 avatar: 'img 3/avatar_8.jpg',
                 visible: true,
+              
                 
                 messages: [
                 {
@@ -178,7 +186,14 @@ createApp({
             }
     
         ]
+        
     }
-  }
-  
+  },
+  methods:{
+
+  },    
+  mounted() {
+    console.log(this.contacts[this.curentIndex].messages[this.curentIndex].message);
+    
+}
 }).mount('#app')

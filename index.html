@@ -46,7 +46,10 @@
                     </div>
                    
                     <ul class="contacts_list">
-                        <li class="row contact_card"  v-for="(element, i) in contacts">
+                        <li class="row contact_card"  
+                            v-for="(element, i) in contacts"
+                            @click="currentIndex = i"
+                        >
                             <div class="avatar"><img :src="element.avatar" alt="avatar1"></div>
                             <div class="contact_info">
                                 <div class="name--mesage">
@@ -94,8 +97,11 @@
                             </div>
                         </div>
 
-                        <div class="row mesage_contact">
-                            <p class="mesage_txt">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta vel eum, ratione quae totam quia quos unde architecto nihil? Modi!</p>
+                        <div class="row mesage_contact"
+                             v-for="(el, i) in contacts[currentIndex].messages" 
+                            >
+                          
+                            <p class="mesage_txt">{{el.message}}</p>
                             <div class="row mesage_nav_time">
                                 
                                 <div class="dropdown mesage_arrow">
@@ -108,7 +114,8 @@
                                     </div>
                                 </div>
                                 <div class="mesage_time">2:35</div>
-                            </div>
+                            
+                        </div>
                         </div>
                     </div>
                     
