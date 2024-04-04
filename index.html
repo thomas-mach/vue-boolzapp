@@ -42,12 +42,16 @@
 
                     <div class="contacts_search">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="search" name="q" placeholder="Cerca o inizia una nuova chat ">
+                        <input type="text" name="" 
+                                placeholder="Cerca o inizia una nuova chat "
+                                v-model="searchValue"
+                                
+                        >
                     </div>
                    
                     <ul class="contacts_list">
                         <li class="row contact_card"  
-                            v-for="(element, i) in contacts"
+                            v-for="(element, i) in contactsFiltrate"
                             @click="currentIndex = i"
                             :class="i === currentIndex ? 'card_active' : ''"
                         >

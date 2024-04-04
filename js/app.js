@@ -3,8 +3,9 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            ok: 'ok',
             currentIndex: 0,
+            contactsFiltrate: [],
+            searchValue: '',
             imputValue: '',
             contacts: [
                 {
@@ -215,9 +216,27 @@ createApp({
             }
             this.contacts[this.currentIndex].messages.push(okMessage)
         }, 1000)
-    } 
+    },
+    searchContact() {
+        
+        this.contactsFiltrate = this.contacts.filter(contact => {
+            return contact.name.toLowerCase().includes(this.searchValue.toLowerCase())
+        })     
+        
+        
+    }
     
-},   
-
+},
+watch: {
+    searchValue: function(newSearchValue, oldSearchValue) {
+      this.searchContact()
+      
+      console.log(this.contactsFiltrate)
+    }
+  },
+mounted() {
+    this.contactsFiltrate = this.contacts.slice()
+    console.log(this.contactsFiltrate[this.currentIndex].name)
+},
 }).mount('#app')
 
