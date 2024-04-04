@@ -163,6 +163,11 @@ input{
     padding: 10px;
     align-items: center;
     gap: 30px;
+    cursor: pointer;
+}
+
+.card_active{
+    background-color: #f5f5f5;
 }
 
 .name{
@@ -211,7 +216,7 @@ input{
     overflow: auto;
 }
 
-.mesage_i{
+.sent{
     max-width: 60%;
     padding: 20px;
     font-size: 14;
@@ -223,7 +228,7 @@ input{
     
 }
 
-.mesage_contact{
+.received{
     max-width: 60%;
     padding: 20px;
     font-size: 14;
@@ -338,6 +343,7 @@ input{
 .container{
     width: 90%;
     margin:  0 auto;
+    padding: 20px 0;
 } 
 
 .contact_info{

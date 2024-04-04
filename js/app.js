@@ -3,8 +3,9 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            ok: 'ok',
             currentIndex: 0,
-            
+            imputValue: '',
             contacts: [
                 {
                     name: 'Fabio',
@@ -190,10 +191,33 @@ createApp({
     }
   },
   methods:{
-
-  },    
-  mounted() {
-    console.log(this.contacts[this.curentIndex].messages[this.curentIndex].message);
+    addMessage(){
+        if(this.imputValue !== ''){
+            const newMessage = {
+                date: '10/01/2020 15:50:00',
+                message: this.imputValue,
+                status: 'sent'
+            }
+            this.contacts[this.currentIndex].messages.push(newMessage)
+            this.imputValue = ''
+            this.addOkMessage()
+            
+            
+        }
+    },
+    addOkMessage(){
+        
+        setTimeout(() => {
+            const okMessage = {
+                date: '10/01/2020 15:50:00',
+                message: 'ok',
+                status: 'received'
+            }
+            this.contacts[this.currentIndex].messages.push(okMessage)
+        }, 1000)
+    } 
     
-}
+},   
+
 }).mount('#app')
+
