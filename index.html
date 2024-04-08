@@ -44,17 +44,15 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <input type="text" name="" 
                                 placeholder="Cerca o inizia una nuova chat "
-                                v-model="searchValue"
-                                
-                        >
+                                v-model="searchValue">
                     </div>
                    
                     <ul class="contacts_list">
                         <li class="row contact_card"  
-                            v-for="(element, i) in contactsFiltrate"
-                            @click="currentIndex = i"
-                            :class="i === currentIndex ? 'card_active' : ''"
-                        >
+                            v-for="(element, i) in filteredContacts" :key="element.id"
+                            @click="currentIndex = element.id"
+                            :class=" element.id === currentIndex ? 'card_active' : ''">
+
                             <div class="avatar"><img :src="element.avatar" alt="avatar1"></div>
                             <div class="contact_info">
                                 <div class="name--mesage">
@@ -63,6 +61,7 @@
                                 </div>
                             </div>
                             <div class="time">15:35</div>
+
                         </li>
                     </ul>
                 </div>
@@ -74,7 +73,7 @@
                             <div class="avatar"><img :src="contacts[currentIndex].avatar" alt="avatar_1"></div>
                             <div class="name--mesage">
                                 <div class="name">{{contacts[currentIndex].name}}</div>
-                                <div class="mesage">Ultiom accesso oggi alle 0:00</div>
+                                <div class="mesage">Ultimo accesso oggi alle 0:00</div>
                             </div>
                             <ul class="row contacts_header_nav">
                                 <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
@@ -86,7 +85,7 @@
 
                     <div class="row chat_main">
                         <div class="row sent"
-                            v-for="(message) in contacts[currentIndex].messages"   
+                            v-for="(message, i) in contacts[currentIndex].messages"   
                             :class="message.status === 'received' ? 'received' : 'sent'"
                         >
                             <p class="mesage_txt">{{message.message}}</p>
@@ -102,7 +101,7 @@
                                             <a href="#">Delete</a>
                                         </div>
                                     </div>
-                                <div class="mesage_time">{{message.date.slice(11, 16)}}</div>
+                                <!-- <div class="mesage_time">{{message.date.slice(11, 16)}}</div> -->
                             </div>
                         </div>
                     </div>
@@ -117,11 +116,12 @@
                         <i class="fa-solid fa-microphone"></i>
                     </div>
                 </div>
+            </div>
 
             
         </div>
     </div>
     <script src="/js/app.js"></script>
 </body>
-</body>
+
 </html> 

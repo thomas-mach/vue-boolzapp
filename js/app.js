@@ -9,6 +9,7 @@ createApp({
             imputValue: '',
             contacts: [
                 {
+                    id: 0,
                     name: 'Fabio',
                     avatar: 'img 3/avatar_1.jpg',
                     visible: true,
@@ -33,7 +34,8 @@ createApp({
                     ]
                 },
                 
-            {
+            {   
+                id: 1,
                 name: 'Pietro',
                 avatar: 'img 3/avatar_2.jpg',
                 visible: true,
@@ -58,6 +60,7 @@ createApp({
                 ]
             },
             {
+                id: 2,
                 name: 'Samuele',
                 avatar: 'img 3/avatar_3.jpg',
                 visible: true,
@@ -82,6 +85,7 @@ createApp({
             ]
         },
         {
+            id: 3,
             name: 'Alessandro C.',
             avatar: 'img 3/avatar_4.jpg',
             visible: true,
@@ -101,6 +105,7 @@ createApp({
                 ]
             },
             {
+                id: 4,
                 name: 'Alessandro',
                 avatar: 'img 3/avatar_5.jpg',
                 visible: true,
@@ -120,6 +125,7 @@ createApp({
                 ]
             },
             {
+                id: 5,
                 name: 'Claudia',
                 avatar: 'img 3/avatar_6.jpg',
                 visible: true,
@@ -127,6 +133,7 @@ createApp({
                 
                 messages: [
                 {
+                    id: 7,
                     date: '10/01/2020 15:30:55',
                     message: 'Ciao Claudia, hai novità?',
                     status: 'sent'
@@ -144,6 +151,7 @@ createApp({
                 ]
             },
             {
+                id: 6,
                 name: 'Federico',
                 avatar: 'img 3/avatar_7.jpg',
                 visible: true,
@@ -163,6 +171,7 @@ createApp({
                 ]
             },
             {
+                id: 7,
                 name: 'Davide',
                 avatar: 'img 3/avatar_8.jpg',
                 visible: true,
@@ -202,8 +211,6 @@ createApp({
             this.contacts[this.currentIndex].messages.push(newMessage)
             this.imputValue = ''
             this.addOkMessage()
-            
-            
         }
     },
     addOkMessage(){
@@ -217,26 +224,17 @@ createApp({
             this.contacts[this.currentIndex].messages.push(okMessage)
         }, 1000)
     },
-    searchContact() {
-        
-        this.contactsFiltrate = this.contacts.filter(contact => {
-            return contact.name.toLowerCase().includes(this.searchValue.toLowerCase())
-        })     
-        
-        
-    }
+   
     
 },
-watch: {
-    searchValue: function(newSearchValue, oldSearchValue) {
-      this.searchContact()
-      
-      console.log(this.contactsFiltrate)
+
+computed: {
+    filteredContacts() {
+            console.log(this.currentIndex)
+        return this.contacts.filter(contact => {
+        return contact.name.toLowerCase().includes(this.searchValue.toLowerCase())
+      })
     }
-  },
-mounted() {
-    this.contactsFiltrate = this.contacts.slice()
-    console.log(this.contactsFiltrate[this.currentIndex].name)
-},
+}
 }).mount('#app')
 
